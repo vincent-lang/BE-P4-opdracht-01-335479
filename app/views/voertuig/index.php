@@ -9,16 +9,14 @@
 </head>
 <body>
     <h3><?= $data['title']; ?></h3>
-    <h3><?= $data['aantal_instructeurs']; ?></h3>
     <table>
         <thead>
-            <th>Voornaam</th>
-            <th>Tussenvoegsel</th>
-            <th>Achternaam</th>
-            <th>Mobiel</th>
-            <th>Datum in dienst</th>
-            <th>Aantal sterren</th>
-            <th>Voertuigen</th>
+            <th>Type voertuig</th>
+            <th>Type</th>
+            <th>Kenteken</th>
+            <th>Bouwjaar</th>
+            <th>Brandstof</th>
+            <th>Rijbewijscategorie</th>
         </thead>
         <tbody>
             <?= $data['rows'];  ?>
