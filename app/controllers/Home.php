@@ -2,17 +2,11 @@
 
 class Home extends BaseController
 {
-    public function index($id = NULL,$name = NULL,$hoogte = NULL,$land = NULL,$jaarlaatsteuitbarsting = NULL,$aantalslachtoffers = NULL)
+    public function index()
     {
 
         $data = [
-            'title' => 'Top 5 actiefste vulkanen ter wereld',
-            'id'    => $id,
-            'name'  => $name,
-            'hoogte'  => $hoogte,
-            'land'=> $land,
-            'jaarlaatsteuitbarsting' => $jaarlaatsteuitbarsting,
-            'aantalslachtoffers' => $aantalslachtoffers
+            'title' => 'opdrachten periode 4'
         ];
 
         $this->view('home/index', $data);
