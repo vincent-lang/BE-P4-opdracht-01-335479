@@ -1,6 +1,6 @@
 <?php
 
-class VulkaanModel
+class InstructeurModel
 {
     private $db;
 
@@ -9,7 +9,7 @@ class VulkaanModel
         $this->db = new Database();    
     }
 
-    public function getVulkaans()
+    public function getInstructeurs()
     {
         $sql = "SELECT Id
                        ,Naam

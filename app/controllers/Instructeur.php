@@ -1,22 +1,22 @@
 <?php
 
-class Vulkaan extends BaseController
+class Instructeur extends BaseController
 {
 
-    private $vulkaanInfo;
+    private $instructeurInfo;
 
     public function __construct()
     {
-        $this->vulkaanInfo = $this->model('VulkaanModel');
+        $this->instructeurInfo = $this->model('InstructeurModel');
     }
 
     public function index()
     {
-        $vulkaans = $this->vulkaanInfo->getVulkaans();
+        $Instructeurs = $this->instructeurInfo->getInstructeurs();
 
         // var_dump($voetballers);
         $rows = '';
-        foreach ($vulkaans as $result) {
+        foreach ($Instructeurs as $result) {
             $rows .= "<tr>
                         <td>$result->Naam</td>
                         <td>$result->Hoogte</td>
@@ -27,11 +27,11 @@ class Vulkaan extends BaseController
         }
 
         $data = [
-            'title' => 'Top 5 actiefste vulkanen ter wereld',
+            'title' => 'Instructeurs in dienst',
             'records' => 'info uit de database',
             'rows' => $rows
         ];
 
-        $this->view('vulkaan/index', $data);
+        $this->view('instructeur/index', $data);
     }
 }
