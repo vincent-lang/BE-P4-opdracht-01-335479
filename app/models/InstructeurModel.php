@@ -12,12 +12,13 @@ class InstructeurModel
     public function getInstructeurs()
     {
         $sql = "SELECT Id
-                       ,Naam
-                       ,Hoogte
-                       ,Land
-                       ,JaarLaatsteUitbarsting
-                       ,AantalSlachtoffers
-                FROM   Vulkaan ORDER BY Id DESC";
+                       ,Voornaam
+                       ,Tussenvoegsel
+                       ,Achternaam
+                       ,Mobiel
+                       ,DatumInDienst
+                       ,AantalSterren
+                FROM   Instructeur ORDER BY AantalSterren DESC";
 
         $this->db->query($sql);
         return $this->db->resultSet();
