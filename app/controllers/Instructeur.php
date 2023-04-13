@@ -24,7 +24,9 @@ class Instructeur extends BaseController
                         <td>$result->DatumInDienst</td>
                         <td>$result->AantalSterren</td>
                         <td>
+                        <a href='voertuig/id/{$result->Id}'>
                         <img src='../../../public/img/car.png' alt='car.png'>
+                        </a>
                         </td>
                     </tr>";
         }
