@@ -9,14 +9,17 @@
 </head>
 <body>
     <h3><?= $data['title']; ?></h3>
+    <h3><?= $data['aantal_instructeurs']; ?></h3>
     
     <table>
         <thead>
-            <th>Naam Vulkaan</th>
-            <th>Hoogte (m)</th>
-            <th>Land</th>
-            <th>Laatste Uitbarsting</th>
-            <th>Aantal Slachtoffers</th>
+            <th>Voornaam</th>
+            <th>Tussenvoegsel</th>
+            <th>Achternaam</th>
+            <th>Mobiel</th>
+            <th>Datum in dienst</th>
+            <th>Aantal sterren</th>
+            <th>Voertuigen</th>
         </thead>
         <tbody>
             <?= $data['rows'];  ?>

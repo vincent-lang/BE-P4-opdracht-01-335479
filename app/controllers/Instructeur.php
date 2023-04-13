@@ -14,7 +14,6 @@ class Instructeur extends BaseController
     {
         $Instructeurs = $this->instructeurInfo->getInstructeurs();
 
-        // var_dump($voetballers);
         $rows = '';
         foreach ($Instructeurs as $result) {
             $rows .= "<tr>
@@ -28,6 +27,7 @@ class Instructeur extends BaseController
 
         $data = [
             'title' => 'Instructeurs in dienst',
+            'aantal_instructeurs' => 'Aantal Instructeurs: 5',
             'records' => 'info uit de database',
             'rows' => $rows
         ];
