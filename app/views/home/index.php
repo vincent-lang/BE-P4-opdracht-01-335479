@@ -10,7 +10,7 @@
 
 <body>
     <h3><?= $data['title']; ?></h3>
-    <a href="<?= URLROOT; ?>/vulkaan/index">Instructeurs in dienst</a>
+    <a href="<?= URLROOT; ?>/instructeur/index">Instructeurs in dienst</a>
 </body>
 
 </html>
