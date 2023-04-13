@@ -17,11 +17,15 @@ class Instructeur extends BaseController
         $rows = '';
         foreach ($Instructeurs as $result) {
             $rows .= "<tr>
-                        <td>$result->Naam</td>
-                        <td>$result->Hoogte</td>
-                        <td>$result->Land</td>
-                        <td>$result->JaarLaatsteUitbarsting</td>
-                        <td>$result->AantalSlachtoffers</td>
+                        <td>$result->Voornaam</td>
+                        <td>$result->Tussenvoegsel</td>
+                        <td>$result->Achternaam</td>
+                        <td>$result->Mobiel</td>
+                        <td>$result->DatumInDienst</td>
+                        <td>$result->AantalSterren</td>
+                        <td>
+                        <img src='../../../public/img/car.png' alt='car.png'>
+                        </td>
                     </tr>";
         }
 
