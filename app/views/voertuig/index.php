@@ -22,6 +22,6 @@
             <?= $data['rows'];  ?>
         </tbody>
     </table>
-    <a href="<?= URLROOT; ?>/home/index">home page</a>
+    <a href="<?= URLROOT; ?>/instructeur/index">instructeur page</a>
 </body>
 </html>

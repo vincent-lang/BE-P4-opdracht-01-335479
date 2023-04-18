@@ -23,4 +23,19 @@ class InstructeurModel
         $this->db->query($sql);
         return $this->db->resultSet();
     }
+
+    public function getVoertuigen()
+    {
+        $sql = "SELECT Id
+                       ,TypeVoertuig.TypeVoertuig
+                       ,Voertuig.Type
+                       ,voertuig.Kenteken
+                       ,voertuig.Bouwjaar
+                       ,voertuig.Brandstof
+                       ,TypeVoertuig.Rijbewijscategorie
+                FROM   TypeVoertuig,Voertuig";
+
+        $this->db->query($sql);
+        return $this->db->resultSet();
+    }
 }

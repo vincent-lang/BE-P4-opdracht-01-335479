@@ -7,7 +7,7 @@ class Voertuig extends BaseController
 
     public function __construct()
     {
-        $this->voertuigInfo = $this->model('VoertuigModel');
+        $this->voertuigInfo = $this->model('InstructeurModel');
     }
 
     public function index()
@@ -17,18 +17,17 @@ class Voertuig extends BaseController
         $rows = '';
         foreach ($Voertuigen as $result) {
             $rows .= "<tr>
-                        <td>$result->Voornaam</td>
-                        <td>$result->Tussenvoegsel</td>
-                        <td>$result->Achternaam</td>
-                        <td>$result->Mobiel</td>
-                        <td>$result->DatumInDienst</td>
-                        <td>$result->AantalSterren</td>
+            <td>$result->TypeVoertuig</td>
+            <td>$result->Type</td>
+            <td>$result->Kenteken</td>
+            <td>$result->Bouwjaar</td>
+            <td>$result->Brandstof</td>
+            <td>$result->Rijbewijscategorie</td>
                     </tr>";
         }
 
         $data = [
-            'title' => 'Instructeurs in dienst',
-            'aantal_instructeurs' => 'Aantal Instructeurs: 5',
+            'title' => 'Door instructeur gebruikte voertuigen',
             'records' => 'info uit de database',
             'rows' => $rows
         ];
