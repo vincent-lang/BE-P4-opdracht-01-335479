@@ -27,12 +27,12 @@ class InstructeurModel
     public function getVoertuigen()
     {
         $sql = "SELECT Id
-                       ,TypeVoertuig.TypeVoertuig
-                       ,Voertuig.Type
-                       ,voertuig.Kenteken
-                       ,voertuig.Bouwjaar
-                       ,voertuig.Brandstof
-                       ,TypeVoertuig.Rijbewijscategorie
+                       ,TypeVoertuig
+                       ,Type
+                       ,Kenteken
+                       ,Bouwjaar
+                       ,Brandstof
+                       ,Rijbewijscategorie
                 FROM   TypeVoertuig,Voertuig";
 
         $this->db->query($sql);

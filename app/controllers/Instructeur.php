@@ -30,10 +30,9 @@ class Instructeur extends BaseController
                         </td>
                     </tr>";
         }
-
         $data = [
             'title' => 'Instructeurs in dienst',
-            'aantal_instructeurs' => 'Aantal Instructeurs: 5',
+            'aantal_instructeurs' => 'Aantal instructeurs: 5',
             'records' => 'info uit de database',
             'rows' => $rows
         ];
