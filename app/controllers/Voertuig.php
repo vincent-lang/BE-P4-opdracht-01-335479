@@ -3,32 +3,36 @@
 class Voertuig extends BaseController
 {
 
-    private $voertuigInfo;
+    private $instructeurInfo;
 
     public function __construct()
     {
-        $this->voertuigInfo = $this->model('InstructeurModel');
+        $this->instructeurInfo = $this->model('InstructeurModel');
     }
 
     public function index()
     {
-        $Voertuigen = $this->voertuigInfo->getVoertuigen();
-
+        $result = $this->instructeurInfo->getVoertuigen();
+        if (empty($result)) {
+            $table = "<tr><td>Geen toegewezen voertuigen</td></tr>";
+        } else {
+        }
         $rows = '';
-        foreach ($Voertuigen as $result) {
+        foreach ($result as $Voertuigen) {
             $rows .= "<tr>
-            <td>$result->TypeVoertuig</td>
-            <td>$result->Type</td>
-            <td>$result->Kenteken</td>
-            <td>$result->Bouwjaar</td>
-            <td>$result->Brandstof</td>
-            <td>$result->Rijbewijscategorie</td>
+            <td>$Voertuigen->TypeVoertuig</td>
+            <td>$Voertuigen->Type</td>
+            <td>$Voertuigen->Kenteken</td>
+            <td>$Voertuigen->Bouwjaar</td>
+            <td>$Voertuigen->Brandstof</td>
+            <td>$Voertuigen->Rijbewijscategorie</td>
                     </tr>";
         }
 
         $data = [
             'title' => 'Door instructeur gebruikte voertuigen',
             'records' => 'info uit de database',
+            'nothing' => $table,
             'rows' => $rows
         ];
 

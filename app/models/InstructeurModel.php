@@ -6,7 +6,7 @@ class InstructeurModel
 
     public function __construct()
     {
-        $this->db = new Database();    
+        $this->db = new Database();
     }
 
     public function getInstructeurs()
@@ -24,16 +24,28 @@ class InstructeurModel
         return $this->db->resultSet();
     }
 
-    public function getVoertuigen()
+    public function getVoertuigen($Id = null)
     {
-        $sql = "SELECT Id
-                       ,TypeVoertuig
-                       ,Type
-                       ,Kenteken
-                       ,Bouwjaar
-                       ,Brandstof
-                       ,Rijbewijscategorie
-                FROM   TypeVoertuig,Voertuig";
+        $sql = "SELECT
+            voer.Type
+            ,voer.Kenteken
+            ,voer.Bouwjaar
+            ,voer.Brandstof
+            ,typevoer.TypeVoertuig
+            ,typevoer.Rijbewijscategorie
+            from Instructeur as instruct
+
+            inner join VoertuigInstructeur as voerinstruc
+            on instruct.Id = voerinstruc.InstructeurId
+            
+            inner join Voertuig as voer
+            on voerinstruc.VoertuigId = voer.Id
+            
+            inner join TypeVoertuig as typevoer
+            on voer.TypeVoertuigId = typevoer.Id
+            
+            where instruct.Id = $Id
+            order by typevoer.Rijbewijscategorie asc";
 
         $this->db->query($sql);
         return $this->db->resultSet();

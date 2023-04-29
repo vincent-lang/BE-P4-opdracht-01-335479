@@ -24,7 +24,7 @@ class Instructeur extends BaseController
                         <td>$result->DatumInDienst</td>
                         <td>$result->AantalSterren</td>
                         <td>
-                        <a href='../voertuig/{$result->Id}'>
+                        <a href='../voertuig/index" . $result->Id . "'>
                         <img src='../../../public/img/car.png' alt='car.png'>
                         </a>
                         </td>
@@ -38,5 +38,34 @@ class Instructeur extends BaseController
         ];
 
         $this->view('instructeur/index', $data);
+    }
+
+    public function gebruiktevoertuigen($Id)
+    {
+        $result = $this->instructeurInfo->getVoertuigen($Id);
+        if (empty($result)) {
+            $table = "<tr><td>Geen toegewezen voertuigen</td></tr>";
+        } else {
+        }
+        $rows = '';
+        foreach ($result as $Voertuigen) {
+            $rows .= "<tr>
+            <td>$Voertuigen->TypeVoertuig</td>
+            <td>$Voertuigen->Type</td>
+            <td>$Voertuigen->Kenteken</td>
+            <td>$Voertuigen->Bouwjaar</td>
+            <td>$Voertuigen->Brandstof</td>
+            <td>$Voertuigen->Rijbewijscategorie</td>
+                    </tr>";
+        }
+
+        $data = [
+            'title' => 'Door instructeur gebruikte voertuigen',
+            'records' => 'info uit de database',
+            'nothing' => $table,
+            'rows' => $rows
+        ];
+
+        $this->view('voertuig/index', $data);
     }
 }
