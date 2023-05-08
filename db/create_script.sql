@@ -1,13 +1,21 @@
--- ============================
--- goal: create database      =
--- ============================
+-- Step: 01
+-- Goal: create database
+-- =============================================================================
+--  Version       Date:           Author:                     Description: 
+-- =============================================================================
+--  01            04-04-2023      Vincent van de Merwe            new          
+-- =============================================================================
 drop database if exists `Mvc-2209b-P4`;
 create database if not exists `Mvc-2209b-P4`;
 use `Mvc-2209b-P4`; 
 
--- =========
--- table 1 =
--- =========
+-- Step: 02
+-- Goal: create table Instructeur
+-- =============================================================================
+--  Version       Date:           Author:                     Description: 
+-- =============================================================================
+--  01            04-04-2023      Vincent van de Merwe            new          
+-- =============================================================================
 
 drop table if exists Instructeur;
 create table if not exists Instructeur (
@@ -25,9 +33,13 @@ DatumGewijzigd datetime(6) not null,
 CONSTRAINT primary key CLUSTERED(Id)
 ) engine=InnoDB;
 
--- =========
--- table 2 =
--- =========
+-- Step: 03
+-- Goal: create table TypeVoertuig
+-- =============================================================================
+--  Version       Date:           Author:                     Description: 
+-- =============================================================================
+--  01            04-04-2023      Vincent van de Merwe            new          
+-- =============================================================================
 
 drop table if exists TypeVoertuig;
 create table if not exists TypeVoertuig (
@@ -41,9 +53,13 @@ DatumGewijzigd datetime(6) not null,
 CONSTRAINT      PK_TypeVoertuig_Id   PRIMARY KEY CLUSTERED(Id)
 ) engine=InnoDB;
 
--- =========
--- table 3 =
--- =========
+-- Step: 04
+-- Goal: create table Voertuig
+-- =============================================================================
+--  Version       Date:           Author:                     Description: 
+-- =============================================================================
+--  01            04-04-2023      Vincent van de Merwe            new          
+-- =============================================================================
 
 drop table if exists Voertuig;
 create table if not exists Voertuig (
@@ -61,9 +77,13 @@ CONSTRAINT      PK_Voertuig_Id   PRIMARY KEY CLUSTERED(Id),
 foreign key (TypeVoertuigId) references TypeVoertuig(Id)
 ) engine=InnoDB;
 
--- =========
--- table 4 =
--- =========
+-- Step: 05
+-- Goal: create table VoertuigInstructeur
+-- =============================================================================
+--  Version       Date:           Author:                     Description: 
+-- =============================================================================
+--  01            04-04-2023      Vincent van de Merwe            new          
+-- =============================================================================
 
 drop table if exists VoertuigInstructeur;
 create table if not exists VoertuigInstructeur (
@@ -80,9 +100,13 @@ foreign key (VoertuigId) references Voertuig(Id),
 foreign key (InstructeurId) references Instructeur(Id)
 ) engine=InnoDB;
 
--- =========
--- table 1 =
--- =========
+-- Step: 06
+-- Goal: insert info into the table Instructeur
+-- =============================================================================
+--  Version       Date:           Author:                     Description: 
+-- =============================================================================
+--  01            04-04-2023      Vincent van de Merwe            new          
+-- =============================================================================
 
 INSERT INTO Instructeur (Id,Voornaam,Tussenvoegsel,Achternaam,Mobiel,DatumInDienst,AantalSterren,IsActief,Opmerkingen,DatumAangemaakt,DatumGewijzigd) 
 VALUES (null, 'Li', '', 'Zhan', '06-28493827', '2015-04-17', '***', 1, NULL, SYSDATE(6), SYSDATE(6));
@@ -95,9 +119,13 @@ VALUES (null, 'Bert', 'Van', 'Sali', '06-48293823', '10-01-2023', '****', 1, NUL
 INSERT INTO Instructeur (Id,Voornaam,Tussenvoegsel,Achternaam,Mobiel,DatumInDienst,AantalSterren,IsActief,Opmerkingen,DatumAangemaakt,DatumGewijzigd) 
 VALUES (null, 'Mohammed', 'El', 'Yassidi', '06-34291234', '14-06-2010', '*****', 1, NULL, SYSDATE(6), SYSDATE(6));
 
--- =========
--- table 2 =
--- =========
+-- Step: 07
+-- Goal: insert info into the table TypeVoertuig
+-- =============================================================================
+--  Version       Date:           Author:                     Description: 
+-- =============================================================================
+--  01            04-04-2023      Vincent van de Merwe            new          
+-- =============================================================================
 
 INSERT INTO TypeVoertuig (Id,TypeVoertuig,Rijbewijscategorie,IsActief,Opmerkingen,DatumAangemaakt,DatumGewijzigd) 
 VALUES (null, 'Personenauto', 'B', 1, NULL, SYSDATE(6), SYSDATE(6));
@@ -108,9 +136,13 @@ VALUES (null, 'Bus', 'D', 1, NULL, SYSDATE(6), SYSDATE(6));
 INSERT INTO TypeVoertuig (Id,TypeVoertuig,Rijbewijscategorie,IsActief,Opmerkingen,DatumAangemaakt,DatumGewijzigd) 
 VALUES (null, 'Bromfiets', 'AM', 1, NULL, SYSDATE(6), SYSDATE(6));
 
--- =========
--- table 3 =
--- =========
+-- Step: 08
+-- Goal: insert info into the table Voertuig
+-- =============================================================================
+--  Version       Date:           Author:                     Description: 
+-- =============================================================================
+--  01            04-04-2023      Vincent van de Merwe            new          
+-- =============================================================================
 
 INSERT INTO Voertuig (Id,Kenteken,Type,Bouwjaar,Brandstof,TypeVoertuigId,IsActief,Opmerkingen,DatumAangemaakt,DatumGewijzigd) 
 VALUES (null, 'AU-67-IO', 'Golf', '12-06-2017', 'Diesel', 1, 1, NULL, SYSDATE(6), SYSDATE(6));
@@ -137,9 +169,13 @@ VALUES (null, 'STP-12-U', 'Kymco', '02-07-2022', 'Benzine', 4, 1, NULL, SYSDATE(
 INSERT INTO Voertuig (Id,Kenteken,Type,Bouwjaar,Brandstof,TypeVoertuigId,IsActief,Opmerkingen,DatumAangemaakt,DatumGewijzigd) 
 VALUES (null, '45-SD-23', 'Renault', '01-01-2023', 'Diesel', 3, 1, NULL, SYSDATE(6), SYSDATE(6));
 
--- =========
--- table 4 =
--- =========
+-- Step: 09
+-- Goal: insert info into the table VoertuigInstructeur
+-- =============================================================================
+--  Version       Date:           Author:                     Description: 
+-- =============================================================================
+--  01            04-04-2023      Vincent van de Merwe            new          
+-- =============================================================================
 
 INSERT INTO VoertuigInstructeur (Id,VoertuigId,InstructeurId,DatumToekenning,IsActief,Opmerkingen,DatumAangemaakt,DatumGewijzigd)
 VALUES (null, 1, 5, '2017-06-18', 1, NULL, SYSDATE(6), SYSDATE(6));
