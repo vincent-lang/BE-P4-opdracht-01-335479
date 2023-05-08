@@ -9,14 +9,13 @@
 </head>
 <body>
     <h3><?= $data['title']; ?></h3>
+    <h3>Naam: <?= $data['voornaam'] . " " . $data['tussenvoegsel'] . " " . $data['achternaam']; ?></h3>
+    <h3>Datum in Dienst: <?= $data['dienst']; ?></h3>
+    <h3>Aantal sterren: <?= $data['sterren']; ?></h3>
+    <h3><?= $data['nothing']; ?></h3>
     <table>
         <thead>
-            <th>Type voertuig</th>
-            <th>Type</th>
-            <th>Kenteken</th>
-            <th>Bouwjaar</th>
-            <th>Brandstof</th>
-            <th>Rijbewijscategorie</th>
+            <?= $data['table']; ?>
         </thead>
         <tbody>
             <?= $data['rows'];  ?>
